@@ -43,7 +43,7 @@ of the framework. So I decided to write this little book about Merb internals.
 ** Repository organization.
 
 
-== Goal
+h2. Goal
 
 Knowing how tools you use work under the covers is a huge win for every
 developer out there and Merb is small and clean enough for everyone to
