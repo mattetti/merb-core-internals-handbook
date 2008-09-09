@@ -1112,7 +1112,7 @@ uses default middleware bundled in merb-core.
 
 Merb::BootLoader::RackUpApplication (merb-core/lib/bootloader.rb):
 <pre>
-class Merb::BootLoader::RackUpApplication < Merb::BootLoader
+  class Merb::BootLoader::RackUpApplication < Merb::BootLoader
   # Setup the Merb Rack App or read a rackup file located at
   # Merb::Config[:rackup] with the same syntax as the
   # rackup tool that comes with rack. Automatically evals the file in

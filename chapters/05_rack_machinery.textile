@@ -172,7 +172,7 @@ servers for short requests in the even loop and threading for longer requests).
 Short cut from Thin::Connection source code:
 
 <pre><code>
-  # +true+ if <tt>app.call</tt> will be called inside a thread.
+# +true+ if <tt>app.call</tt> will be called inside a thread.
 # You can set all requests as threaded setting <tt>Connection#threaded=true</tt>
 # or on a per-request case returning +true+ in <tt>app.deferred?</tt>.
 def threaded?
@@ -198,7 +198,7 @@ special DSL implemented within a Rack::Builder class.
 Rack source code provides the following example of using Rack::Builder:
 
 <pre><code>
-  app = Rack::Builder.new {
+app = Rack::Builder.new {
   use Rack::CommonLogger
   use Rack::ShowExceptions
   map "/lobster" do

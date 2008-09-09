@@ -24,8 +24,8 @@ h2. Details.
 Once Rack environment is passed into Merb Rack application, dispatch
 process is started.
 
+[Merb::Rack::Application#call]
 <pre><code>
-  [Merb::Rack::Application#call]
 def call(env) 
   begin
     controller = ::Merb::Dispatcher.handle(Merb::Request.new(env))
@@ -49,8 +49,8 @@ Merb 0.9.5 development cycle it started to delegate to Merb::Request#handle.
 
 Here it is:
 
+[Merb::Request#handle]
 <pre><code>
-  [Merb::Request#handle]
 def handle
   start = Time.now
   Merb.logger.info "Started request handling: #{start.to_s}"
@@ -94,8 +94,8 @@ Merb::Request#dispatch_action. It instantiates the controller, passes in
 the request itself and calls _dispatch on the controller synchronized
 with mutex if needed.
 
+[Merb::AbstractController#dispatch_action]
 <pre><code>
-  [Merb::AbstractController#dispatch_action]
 def dispatch_action(klass, action, status=200)
   # build controller
   controller = klass.new(self, status)
@@ -113,8 +113,8 @@ knows how to process filters and look up templates
 Merb::Controller#_dispatch does benchmarking of action run time and
 calls parent's method:
 
+[Merb::Controller#_dispatch]
 <pre><code>
-  [Merb::Controller#_dispatch]
 def _dispatch(action)
   setup_session
   self.action_name = action
@@ -166,8 +166,8 @@ database, memcached or something else.
 AbstractController#_call_action is very simple and can be overriden
 in subclasses:
 
+[Merb::AbstractController#_call_action]
 <pre><code>
-  [Merb::AbstractController#_call_action]
 def _call_action(action)
   send(action)
 end
@@ -177,8 +177,8 @@ Now back to Merb::Dispatcher for a little bit. What if action raises an exceptio
 As you can see in Merb::Request#handle code above, it's rescued and re-dispatched
 with dispatch_exception method:
 
+[Merb::Request#dispatch_exception]
 <pre><code>
-  [Merb::Request#dispatch_exception]
 def dispatch_exception(exception)
   Merb.logger.error(Merb.exception(exception))
   self.exceptions = [exception]
@@ -221,9 +221,8 @@ Last line of call method supposed to return
 a 3-tuple of status, headers and response body, and it does using
 Merb::Controller#rack_response method:
 
-
+[Merb::Controller#rack_response]
 <pre><code>
-  [Merb::Controller#rack_response]
 def rack_response
   [status, headers, body]
 end
