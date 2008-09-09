@@ -1,4 +1,4 @@
-== Arguments parsing.
+h1. Arguments parsing.
 
 Executable file merb that every Merb user have seen for sure, looks like this:
 
